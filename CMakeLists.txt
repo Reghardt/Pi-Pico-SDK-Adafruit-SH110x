@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(SH110X)
 
+
 add_subdirectory(Pi-Pico-SDK-Adafruit-GFX-Library)
 add_library(SH110X STATIC
     SH1106.cpp
