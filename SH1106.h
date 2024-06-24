@@ -46,6 +46,8 @@ public:
   void begin(uint8_t i2caddr = 0x3C, bool reset = true);
   void display();
 
+  void print(const char *str);
+
 protected:
   /*! some displays are 'inset' in memory, so we have to skip some memory to
    * display */

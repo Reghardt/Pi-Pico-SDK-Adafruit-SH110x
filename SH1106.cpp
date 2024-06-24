@@ -13,13 +13,13 @@ SH1106::~SH1106(void) {}
 void SH1106::begin(uint8_t addr, bool reset)
 {
 
-        Adafruit_GrayOLED::_init();
+  Adafruit_GrayOLED::_init();
 
-        _page_start_offset =
-            2; // the SH1106 display we have found requires a small offset into memory
+  _page_start_offset =
+      2; // the SH1106 display we have found requires a small offset into memory
 
-        // Init sequence, make sure its under 32 bytes, or split into multiples!
-        // clang-format off
+  // Init sequence, make sure its under 32 bytes, or split into multiples!
+  // clang-format off
   static const uint8_t init[] = {
       SH110X_DISPLAYOFF,               // 0xAE
       SH110X_SETDISPLAYCLOCKDIV, 0x80, // 0xD5, 0x80,
@@ -93,4 +93,14 @@ void SH1106::display()
   window_y1 = 1024;
   window_x2 = -1;
   window_y2 = -1;
+}
+
+void SH1106::print(const char *str)
+{
+
+  for (uint i = 0; str[i] != '\0'; ++i)
+  {
+    write(str[i]);
+  }
+  
 }
